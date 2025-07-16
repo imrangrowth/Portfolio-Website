@@ -2,11 +2,11 @@
 
 import {
   BallCollider,
-  CylinderCollider,
   Physics,
   RigidBody,
-  type RigidBodyApi,
+  CylinderCollider,
 } from "@react-three/rapier";
+import type { RigidBodyApi } from "@react-three/rapier/dist/declarations/src/types";
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
