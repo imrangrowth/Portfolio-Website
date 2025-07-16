@@ -1,8 +1,7 @@
 import {
   FaGithub,
   FaInstagram,
-  FaLinkedinIn,
-  FaXTwitter,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
@@ -47,7 +46,6 @@ const SocialIcons = () => {
       };
 
       document.addEventListener("mousemove", onMouseMove);
-
       updatePosition();
 
       return () => {
@@ -60,29 +58,32 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com/imrangrowth" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/imrangrowth" target="_blank">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com/imran.muhaa" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/imran.muhaa" target="_blank">
             <FaInstagram />
           </a>
         </span>
         <span>
-          <a href="https://wa.me/2349025452309" target="_blank" rel="noopener noreferrer">
-            <FaXTwitter />
-          </a>
-        </span>
-        <span>
-          <a href="https://www.linkedin.com/in/imran-muhammad" target="_blank" rel="noopener noreferrer">
-            <FaLinkedinIn />
+          <a
+            href="https://wa.me/2349025452309"
+            target="_blank"
+            title="Chat on WhatsApp"
+          >
+            <FaWhatsapp />
           </a>
         </span>
       </div>
 
-      <a className="resume-button" href="https://growthbyimran.netlify.app" target="_blank" rel="noopener noreferrer">
-        <HoverLinks text="PORTFOLIO" />
+      <a
+        className="resume-button"
+        href="/resume.pdf" // Replace with your actual file path if needed
+        target="_blank"
+      >
+        <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
