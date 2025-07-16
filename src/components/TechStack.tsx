@@ -6,7 +6,6 @@ import {
   RigidBody,
   CylinderCollider,
 } from "@react-three/rapier";
-import type { RigidBodyApi } from "@react-three/rapier/dist/declarations/src/types";
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useRef } from "react";
@@ -15,7 +14,7 @@ import { OrbitControls } from "@react-three/drei";
 import { EffectComposer, Vignette } from "@react-three/postprocessing";
 
 export default function Techstack() {
-  const rigidRef = useRef<RigidBodyApi>(null);
+  const rigidRef = useRef<any>(null); // ✅ updated here
 
   return (
     <section className="relative h-screen bg-black">
