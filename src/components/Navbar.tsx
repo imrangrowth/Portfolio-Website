@@ -8,23 +8,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Navbar = () => {
   useEffect(() => {
-    let links = document.querySelectorAll(".header ul a");
-
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let targetId = element.getAttribute("href");
-          if (targetId) {
-            document.querySelector(targetId)?.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
-          }
-        }
-      });
-    });
+    gsap.fromTo(
+      ".header",
+      { opacity: 0, y: -50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".header",
+          start: "top top",
+        },
+      }
+    );
   }, []);
 
   return (
@@ -42,17 +39,17 @@ const Navbar = () => {
         </a>
         <ul>
           <li>
-            <a href="#about">
+            <a data-href="#about" href="#about">
               <HoverLinks text="ABOUT" />
             </a>
           </li>
           <li>
-            <a href="#work">
+            <a data-href="#work" href="#work">
               <HoverLinks text="WORK" />
             </a>
           </li>
           <li>
-            <a href="#contact">
+            <a data-href="#contact" href="#contact">
               <HoverLinks text="CONTACT" />
             </a>
           </li>
