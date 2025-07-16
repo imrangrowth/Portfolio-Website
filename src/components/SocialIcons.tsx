@@ -60,28 +60,29 @@ const SocialIcons = () => {
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
         <span>
-          <a href="https://github.com" target="_blank">
+          <a href="https://github.com/imrangrowth" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com" target="_blank">
-            <FaLinkedinIn />
+          <a href="https://www.instagram.com/imran.muhaa" target="_blank" rel="noopener noreferrer">
+            <FaInstagram />
           </a>
         </span>
         <span>
-          <a href="https://x.com" target="_blank">
+          <a href="https://wa.me/2349025452309" target="_blank" rel="noopener noreferrer">
             <FaXTwitter />
           </a>
         </span>
         <span>
-          <a href="https://www.instagram.com" target="_blank">
-            <FaInstagram />
+          <a href="https://www.linkedin.com/in/imran-muhammad" target="_blank" rel="noopener noreferrer">
+            <FaLinkedinIn />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
-        <HoverLinks text="RESUME" />
+
+      <a className="resume-button" href="https://growthbyimran.netlify.app" target="_blank" rel="noopener noreferrer">
+        <HoverLinks text="PORTFOLIO" />
         <span>
           <TbNotes />
         </span>
