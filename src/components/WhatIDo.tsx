@@ -1,172 +1,93 @@
-import { useEffect, useRef } from "react";
-import "./styles/WhatIDo.css";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeIn } from "@/variants";
 
 const WhatIDo = () => {
-  const containerRef = useRef<(HTMLDivElement | null)[]>([]);
-  const setRef = (el: HTMLDivElement | null, index: number) => {
-    containerRef.current[index] = el;
-  };
-  useEffect(() => {
-    if (ScrollTrigger.isTouch) {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.classList.remove("what-noTouch");
-          container.addEventListener("click", () => handleClick(container));
-        }
-      });
-    }
-    return () => {
-      containerRef.current.forEach((container) => {
-        if (container) {
-          container.removeEventListener("click", () => handleClick(container));
-        }
-      });
-    };
-  }, []);
   return (
-    <div className="whatIDO">
-      <div className="what-box">
-        <h2 className="title">
-          W<span className="hat-h2">HAT</span>
-          <div>
-            I<span className="do-h2"> DO</span>
-          </div>
-        </h2>
-      </div>
-      <div className="what-box">
-        <div className="what-box-in">
-          <div className="what-border2">
-            <svg width="100%">
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-              <line
-                x1="100%"
-                y1="0"
-                x2="100%"
-                y2="100%"
-                stroke="white"
-                strokeWidth="2"
-                strokeDasharray="7,7"
-              />
-            </svg>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 0)}
+    <section className="section" id="what">
+      <div className="container mx-auto">
+        <div className="flex flex-col xl:flex-row gap-24">
+          {/* TEXT */}
+          <motion.div
+            variants={fadeIn("right", 0.2)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex-1"
           >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="0"
-                  x2="100%"
-                  y2="0"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
+            <h2 className="h2 mb-6 xl:mb-12">What I Do</h2>
 
-            <div className="what-content-in">
-              <h3>DEVELOP</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae.
+            {/* DEVELOP */}
+            <div className="mb-6">
+              <h3 className="h3">DEVELOP</h3>
+              <h4 className="text-xl font-semibold text-accent mb-2">Description</h4>
+              <p className="mb-4">
+                I build responsive, SEO-optimized, and high-performing websites using tools like React, Next.js, and TypeScript. My focus is on clean code, speed, and delivering real business results for clients.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5 className="text-lg font-medium mb-2">Skillset & tools</h5>
               <div className="what-content-flex">
                 <div className="what-tags">JavaScript</div>
                 <div className="what-tags">TypeScript</div>
-                <div className="what-tags">Three.js</div>
                 <div className="what-tags">React</div>
-                <div className="what-tags">Css</div>
-                <div className="what-tags">Node.js</div>
                 <div className="what-tags">Next.js</div>
+                <div className="what-tags">Node.js</div>
                 <div className="what-tags">Express.js</div>
+                <div className="what-tags">Tailwind CSS</div>
                 <div className="what-tags">PHP</div>
-                <div className="what-tags">MySql</div>
+                <div className="what-tags">MySQL</div>
               </div>
-              <div className="what-arrow"></div>
             </div>
-          </div>
-          <div
-            className="what-content what-noTouch"
-            ref={(el) => setRef(el, 1)}
-          >
-            <div className="what-border1">
-              <svg height="100%">
-                <line
-                  x1="0"
-                  y1="100%"
-                  x2="100%"
-                  y2="100%"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeDasharray="6,6"
-                />
-              </svg>
-            </div>
-            <div className="what-corner"></div>
-            <div className="what-content-in">
-              <h3>DESIGN</h3>
-              <h4>Description</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                quia aliquid laboriosam ducimus sit molestiae
+
+            {/* DESIGN */}
+            <div className="mb-6">
+              <h3 className="h3">DESIGN</h3>
+              <h4 className="text-xl font-semibold text-accent mb-2">Description</h4>
+              <p className="mb-4">
+                I create clean, modern, and impactful web designs that align with business goals. From wireframes to UI/UX, every element is crafted to engage users and elevate your online presence.
               </p>
-              <h5>Skillset & tools</h5>
+              <h5 className="text-lg font-medium mb-2">Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">Blender</div>
-                <div className="what-tags">Zbrush</div>
                 <div className="what-tags">UI Design</div>
-                <div className="what-tags">Motion</div>
-                <div className="what-tags">Rigging</div>
-                <div className="what-tags">3D Animation</div>
-                <div className="what-tags">Character Design</div>
-                <div className="what-tags">Modelling</div>
+                <div className="what-tags">Figma</div>
+                <div className="what-tags">Adobe XD</div>
+                <div className="what-tags">Canva</div>
+                <div className="what-tags">Branding</div>
+                <div className="what-tags">Responsive Design</div>
               </div>
-              <div className="what-arrow"></div>
             </div>
-          </div>
+
+            {/* 3D */}
+            <div>
+              <h3 className="h3">3D & ANIMATION</h3>
+              <h4 className="text-xl font-semibold text-accent mb-2">Description</h4>
+              <p className="mb-4">
+                I also explore the world of 3D web and motion design, adding interactivity and stunning effects using modern tools. Whether it’s product mockups or animated sections, I make experiences pop.
+              </p>
+              <h5 className="text-lg font-medium mb-2">Skillset & tools</h5>
+              <div className="what-content-flex">
+                <div className="what-tags">Three.js</div>
+                <div className="what-tags">React Three Fiber</div>
+                <div className="what-tags">Blender</div>
+                <div className="what-tags">Spline</div>
+                <div className="what-tags">ZBrush</div>
+                <div className="what-tags">3D Mockups</div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* VISUAL */}
+          <motion.div
+            variants={fadeIn("left", 0.4)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.3 }}
+            className="flex-1 bg-about bg-contain bg-no-repeat h-[640px] bg-top"
+          />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default WhatIDo;
-
-function handleClick(container: HTMLDivElement) {
-  container.classList.toggle("what-content-active");
-  container.classList.remove("what-sibling");
-  if (container.parentElement) {
-    const siblings = Array.from(container.parentElement.children);
-
-    siblings.forEach((sibling) => {
-      if (sibling !== container) {
-        sibling.classList.remove("what-content-active");
-        sibling.classList.toggle("what-sibling");
-      }
-    });
-  }
-}
