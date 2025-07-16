@@ -8,7 +8,7 @@ import {
   Physics,
   RigidBody,
   CylinderCollider,
-  RapierRigidBody,
+  RigidBodyApi,
 } from "@react-three/rapier";
 
 const textureLoader = new THREE.TextureLoader();
@@ -45,7 +45,7 @@ function SphereGeo({
   material,
   isActive,
 }: SphereProps) {
-  const api = useRef<RapierRigidBody | null>(null);
+  const api = useRef<RigidBodyApi | null>(null);
 
   useFrame((_state, delta) => {
     if (!isActive) return;
@@ -97,7 +97,7 @@ type PointerProps = {
 };
 
 function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
-  const ref = useRef<RapierRigidBody>(null);
+  const ref = useRef<RigidBodyApi | null>(null);
 
   useFrame(({ pointer, viewport }) => {
     if (!isActive) return;
@@ -135,6 +135,7 @@ const TechStack = () => {
         .getBoundingClientRect().top;
       setIsActive(scrollY > threshold);
     };
+
     document.querySelectorAll(".header a").forEach((elem) => {
       const element = elem as HTMLAnchorElement;
       element.addEventListener("click", () => {
@@ -146,11 +147,13 @@ const TechStack = () => {
         }, 1000);
       });
     });
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
