@@ -1,51 +1,45 @@
-import { gsap } from "gsap";
-import { smoother } from "../Navbar";
+import gsap from "gsap";
 
 export function initialFX() {
   document.body.style.overflowY = "auto";
-  smoother.paused(false);
-  document.getElementsByTagName("main")[0].classList.add("main-active");
+  document.getElementsByTagName("main")[0]?.classList.add("main-active");
 
+  // Fade in the background
   gsap.to("body", {
     backgroundColor: "#0b080c",
     duration: 0.5,
     delay: 1,
   });
 
+  // Fade in landing text elements
   gsap.fromTo(
     [".landing-info h3", ".landing-intro h2", ".landing-intro h1"],
-    { opacity: 0, y: 60 },
+    {
+      opacity: 0,
+      y: 80,
+      filter: "blur(5px)",
+    },
     {
       opacity: 1,
       y: 0,
+      filter: "blur(0px)",
       duration: 1.2,
-      ease: "power3.out",
-      stagger: 0.15,
+      ease: "power3.inOut",
+      stagger: 0.2,
       delay: 0.3,
     }
   );
 
-  gsap.fromTo(
-    ".landing-h2-info",
-    { opacity: 0, y: 60 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power3.out",
-      delay: 1.5,
-    }
-  );
-
+  // Additional text fade-ins
   gsap.fromTo(
     ".landing-info-h2",
     { opacity: 0, y: 30 },
     {
       opacity: 1,
       y: 0,
-      duration: 1,
-      ease: "power2.out",
-      delay: 2,
+      duration: 1.2,
+      ease: "power1.inOut",
+      delay: 0.8,
     }
   );
 
@@ -55,8 +49,8 @@ export function initialFX() {
     {
       opacity: 1,
       duration: 1.2,
-      ease: "power1.out",
-      delay: 0.8,
+      ease: "power1.inOut",
+      delay: 0.1,
     }
   );
 }
