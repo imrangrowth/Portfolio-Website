@@ -12,46 +12,49 @@ const Career = () => {
           <div className="career-timeline">
             <div className="career-dot"></div>
           </div>
+
+          {/* Alad Autos */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Digital Marketer</h4>
+                <h5>Alad Autos</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2023</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Worked as a digital marketer for Alad Autos, focusing on online visibility,
+              content strategy, and paid ads to drive auto sales.
             </p>
           </div>
+
+          {/* Meetadoll Freelance */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Website Designer (Freelance)</h4>
+                <h5>Meetadoll</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2024</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Designed and developed a personalized brand website for Meetadoll,
+              a Northern Nigerian entrepreneur and influencer.
             </p>
           </div>
+
+          {/* Growth by Imran */}
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Founder / Web Developer</h4>
+                <h5>Growth by Imran</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2024 – Present</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Building custom websites and digital growth strategies for businesses across Nigeria.
+              Projects include Muhacars, Meetadoll, and personal agency website.
             </p>
           </div>
         </div>
