@@ -6,9 +6,11 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-          dolores numquam iusto Ratione earum ducimus autem id iure pariatur
-          dolorum quae maiores.
+          I'm Imran Muhammad — a passionate digital marketer, web designer, and full-stack developer. 
+          I help individuals and businesses grow their brands online through impactful design, 
+          functional websites, and smart marketing strategies. Whether you're launching a startup or 
+          expanding your digital presence, I'm here to help you succeed with clean, professional, and 
+          result-driven solutions.
         </p>
       </div>
     </div>
