@@ -1,34 +1,38 @@
 import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Work = () => {
-  const sectionRef = useRef<HTMLDivElement | null>(null);
-  const flexRef = useRef<HTMLDivElement | null>(null);
-
   useEffect(() => {
-    const section = sectionRef.current;
-    const flex = flexRef.current;
+    let translateX = 0;
 
-    if (!section || !flex) return;
+    function setTranslateX() {
+      const box = document.getElementsByClassName("work-box");
+      if (!box.length) return;
 
-    const boxes = flex.querySelectorAll(".work-box");
+      const containerLeft = document
+        .querySelector(".work-container")!
+        .getBoundingClientRect().left;
 
-    const totalWidth = Array.from(boxes).reduce((acc, box) => {
-      const rect = box.getBoundingClientRect();
-      return acc + rect.width;
-    }, 0);
+      const boxRect = box[0].getBoundingClientRect();
+      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
 
-    const sectionWidth = section.getBoundingClientRect().width;
-    const translateX = totalWidth - sectionWidth;
+      const padding = parseInt(
+        window.getComputedStyle(box[0]).padding || "0"
+      ) / 2;
 
-    const timeline = gsap.timeline({
+      translateX = boxRect.width * box.length - (containerLeft + parentWidth) + padding;
+    }
+
+    setTranslateX();
+
+    let timeline = gsap.timeline({
       scrollTrigger: {
-        trigger: section,
+        trigger: ".work-section",
         start: "top top",
         end: `+=${translateX}`,
         scrub: true,
@@ -37,7 +41,7 @@ const Work = () => {
       },
     });
 
-    timeline.to(flex, {
+    timeline.to(".work-flex", {
       x: -translateX,
       ease: "none",
     });
@@ -49,26 +53,31 @@ const Work = () => {
   }, []);
 
   return (
-    <div className="work-section" id="work" ref={sectionRef}>
+    <div className="work-section" id="work">
       <div className="work-container section-container">
         <h2>
           My <span>Work</span>
         </h2>
-        <div className="work-flex" ref={flexRef}>
-          {[...Array(6)].map((_value, index) => (
-            <div className="work-box" key={index}>
+        <div className="work-flex">
+          {[...Array(6)].map((_val, i) => (
+            <div className="work-box" key={i}>
               <div className="work-info">
                 <div className="work-title">
-                  <h3>0{index + 1}</h3>
+                  <h3>0{i + 1}</h3>
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>Project {i + 1}</h4>
+                    <p>Category {i + 1}</p>
                   </div>
                 </div>
                 <h4>Tools and features</h4>
-                <p>JavaScript, TypeScript, React, Three.js</p>
+                <p>React, TypeScript, GSAP, Three.js</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="Project preview" />
+              <WorkImage
+                image={`/images/placeholder.webp`}
+                alt={`Project ${i + 1}`}
+                video={`project${i + 1}.mp4`}
+                link={"https://example.com/project" + (i + 1)}
+              />
             </div>
           ))}
         </div>
